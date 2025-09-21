@@ -1,6 +1,4 @@
-
 import sqlite3
-
 
 # Utility class to manage internal database
 class User_Preferences:
@@ -15,6 +13,8 @@ class User_Preferences:
         self.up_cur.execute("DROP TABLE IF EXISTS activities")
         self.up_cur.execute("CREATE TABLE programs (name UNIQUE,active)")
         self.up_cur.execute("CREATE TABLE activities (label UNIQUE,active)")
+        self.up_con.commit()
+
         
     # Enter program and activity title strings into the internal database
     # If already present, update to the specified active value
